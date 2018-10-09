@@ -30,7 +30,6 @@ class MainController extends Controller
             );
 
             if(Auth::attempt($userData)){
-                info('This is some useful information.');
                 return redirect('main/sucesslogin');
             }
             else{

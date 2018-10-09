@@ -20,14 +20,18 @@
    <div align="center">
   <img  height="150" width="150" src="{{ asset('geminus.png') }}">
     </div>
-   @if(isset(Auth::user()->CPF))
-   <!-- <script>window.location="/main/successlogin";</script> -->
-   @endif
 
-   @if ($message = Session::get('error'))
+    @if ($menssagem = Session::get('sucesso'))
    <div class="alert alert-danger alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $message }}</strong>
+    <strong>{{ $menssagem }}</strong>
+   </div>
+   @endif
+
+   @if ($menssagem = Session::get('error'))
+   <div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $menssagem }}</strong>
    </div>
    @endif
     @if (count($errors) > 0)
@@ -41,19 +45,13 @@
     </div>
 
      @endif
-   <form method="post" action="{{ url('/main/checklogin') }}">
+   <form method="post" action="{{ url('/main/validaremail') }}">
     {{ csrf_field() }}
     <div class="form-group">
-        <input placeholder="Usuário" type="text" name="CPF" id="CPF" class="form-control"/>
+        <input placeholder="email" type="email" name="email" id="email" class="form-control"/>
     </div>
     <div class="form-group">
-    
-     <input placeholder="Senha" type="password" name="senha" class="form-control" />
-    </div>
-    <a href='esqueceusenha'> Esqueci a senha </a>
-
-    <div class="form-group">
-     <input type="submit" name="login" class="btn btn-primary" value="Login" />
+     <input type="submit" name="novasenha" class="btn btn-primary" value="Nova Senha" />
     </div>
    </form>
   </div>
