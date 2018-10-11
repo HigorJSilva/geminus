@@ -21,3 +21,7 @@ Route::get('/main/successlogin', 'MainController@successlogin');
 Route::get('/main/logout', 'MainController@logout');
 Route::get('/esqueceusenha','EmailController@index');
 Route::post('/main/validaremail', 'EmailController@validaremail');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

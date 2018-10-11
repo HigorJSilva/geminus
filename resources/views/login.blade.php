@@ -21,7 +21,7 @@
   <img  height="150" width="150" src="{{ asset('geminus.png') }}">
     </div>
    @if(isset(Auth::user()->CPF))
-   <!-- <script>window.location="/main/successlogin";</script> -->
+    <script>window.location="/main/successlogin";</script>
    @endif
 
    @if ($message = Session::get('error'))

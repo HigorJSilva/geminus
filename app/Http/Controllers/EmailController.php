@@ -46,15 +46,13 @@ class EmailController extends Controller
     public function atualizaSenha($senha)
     {
         $user_id = User::select('id')->where('email', $this->email)->first();
-        $user_id->senha = $senha;
+        $user_id->senha = hash::make($senha);
         $user_id->save();
-      
     }
 
     public function enviarEmail($senha)
     {
         $data = array('name' => "Geminus",'senha' => $senha);
-
         $menssagem = ('Nova senha gerada.');
 
         Mail::send(['html' => 'novasenha'], $data, function ($message) {

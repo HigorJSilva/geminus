@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use Auth;
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class MainController extends Controller
 {
@@ -23,10 +26,9 @@ class MainController extends Controller
             'senha.required' => 'O campo senha é obrigatório.',
             'senha.alphaNum' => 'O campo senha precisa ser alpha numérico.'
         ]);
-
             $userData = array(
                 'CPF' =>$request->get('CPF'),
-                'senha' =>$request->get('senha')
+                'senha' => $request->get('senha'),
             );
 
             if(Auth::attempt($userData)){

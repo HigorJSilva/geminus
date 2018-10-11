@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class UsersTablesSeeder extends Seeder
 {
-	protected $table = 'tes.tusuario';
+	protected $table = 'usuario';
     /**
      * Run the database seeds.
      *
@@ -13,9 +14,12 @@ class UsersTablesSeeder extends Seeder
      */
     public function run()
     {
-        Usuario::create([
-			'CPF' =>  '06589384100',
-			'email' => 'teste@gmail.com',
-			'senha' => 'senha']);
+       /* Eloquent::unguard();
+        $this->call('UsersTablesSeeder');*/
+        User::create([
+            'CPF' => '1234567',
+            'email' => 'haha@gmail.com',
+            'senha' => hash::make('senha')
+        ]);
     }
 }
