@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 use Validator;
 use Auth;
 
@@ -48,4 +49,17 @@ class MainController extends Controller
         Auth::logout();
         return redirect('main');
     }
+
+    public function atualizaSenha($senha,$email)
+    {
+        $user_id = User::select('id')->where('email', $email)->first();
+        $user_id->senha = hash::make($senha);
+        $user_id->save();
+    }
+
+    function gerarSenha()
+    {
+        return str_random(8);
+    }
+
 }

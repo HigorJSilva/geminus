@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\User;
+use App\Http\Controllers\MainController;
 
-class EmailController extends Controller
-{
+class EmailController extends Controller{
     private $email;
+    private $controle;
+
     function index()
     {
         return view('esqueceusenha');
@@ -30,9 +32,11 @@ class EmailController extends Controller
 
         if (User::where('email', '=', $this->email)->exists()) {
            
-            $senha=$this->gerarSenha();
+            $controle = new MainController;
+
+            $senha= $controle->gerarSenha();
             $this->enviarEmail($senha);
-            $this->atualizaSenha($senha);
+            $controle->atualizaSenha($senha, $this->email);
             $menssagem ='Nova senha enviada';
             return redirect('/esqueceusenha')->with('sucesso', $menssagem);
          }
@@ -41,13 +45,6 @@ class EmailController extends Controller
             return redirect('/esqueceusenha')->with('error', $menssagem);
 
         }
-    }
-
-    public function atualizaSenha($senha)
-    {
-        $user_id = User::select('id')->where('email', $this->email)->first();
-        $user_id->senha = hash::make($senha);
-        $user_id->save();
     }
 
     public function enviarEmail($senha)
@@ -60,10 +57,5 @@ class EmailController extends Controller
             $message->from('geminusueg@gmail.com', 'Administração Geminus');
         });
 
-    }
-
-    function gerarSenha()
-    {
-        return str_random(8);
     }
 }
