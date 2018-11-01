@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
     
-     <input placeholder="Senha" type="password" name="senha" class="form-control" />
+     <input placeholder="Senha" type="password" name="password" class="form-control" />
     </div>
     <a href='esqueceusenha'> Esqueci a senha </a>
 

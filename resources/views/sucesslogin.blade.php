@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
- <!--  TEM UNS USER->EMAIL Q PRECISA ARRUMAR PRA USUARIOS->CPF -->
+ 
   <title>Simple Login System in Laravel</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -19,7 +19,7 @@
   <div class="container box">
    <h3 align="center">Simple Login System in Laravel</h3><br />
 
-   @if(isset(Auth::user()->email))
+   @if(isset(Auth::user()->CPF))
     <div class="alert alert-danger success-block">
      <strong>Welcome {{ Auth::user()->CPF }}</strong>
      <br />

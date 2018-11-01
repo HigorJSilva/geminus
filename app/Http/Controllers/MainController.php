@@ -19,17 +19,17 @@ class MainController extends Controller
     function checkLogin (Request $request){
         $this->validate($request, [
             'CPF' => 'required|numeric|',
-            'senha' => 'required|alphaNum|min:2'
+            'password' => 'required|alphaNum|min:2'
             
         ], [
             'CPF.required' => 'O campo CPF é obrigatório.',
             'CPF.numeric' => 'O campo CPF é precisa ser numérico.',
-            'senha.required' => 'O campo senha é obrigatório.',
-            'senha.alphaNum' => 'O campo senha precisa ser alpha numérico.'
+            'password.required' => 'O campo password é obrigatório.',
+            'password.alphaNum' => 'O campo password precisa ser alpha numérico.'
         ]);
             $userData = array(
                 'CPF' =>$request->get('CPF'),
-                'senha' => $request->get('senha'),
+                'password' => $request->get('password'),
             );
 
             if(Auth::attempt($userData)){
@@ -37,7 +37,7 @@ class MainController extends Controller
             }
             else{
                 info($userData);
-                return back()->with('error', 'Login ou senha incorretos');
+                return back()->with('error', 'Login ou password incorretos');
             }
     }
 
@@ -50,14 +50,14 @@ class MainController extends Controller
         return redirect('main');
     }
 
-    public function atualizaSenha($senha,$email)
+    public function atualizasenha($password,$email)
     {
         $user_id = User::select('id')->where('email', $email)->first();
-        $user_id->senha = hash::make($senha);
+        $user_id->password = hash::make($password);
         $user_id->save();
     }
 
-    function gerarSenha()
+    function gerarsenha()
     {
         return str_random(8);
     }
