@@ -15,6 +15,10 @@ class MainController extends Controller
     function index(){
         return view('login');
     }
+    function teste(){
+        
+        return view('novo');
+    }
 
     function checkLogin (Request $request){
         $this->validate($request, [
