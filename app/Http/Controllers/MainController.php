@@ -17,7 +17,7 @@ class MainController extends Controller
     }
     function teste(){
         
-        return view('novo');
+        return view('layouts.teste');
     }
 
     function checkLogin (Request $request){
