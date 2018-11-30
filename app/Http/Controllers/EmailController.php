@@ -38,7 +38,7 @@ class EmailController extends Controller{
             $this->enviarEmail($senha);
             $controle->atualizaSenha($senha, $this->email);
             $menssagem ='Nova senha enviada';
-            return redirect('/login')->with('sucesso', $menssagem);
+            return redirect('/esqueceusenha')->with('sucesso', $menssagem);
          }
         else {
             $menssagem = ('Email inválido');
