@@ -23,9 +23,17 @@ Route::get('/esqueceusenha','EmailController@index');
 Route::post('/main/validaremail', 'EmailController@validaremail');
 Route::get('/esqueceusenha','EmailController@index');
 Route::get('/teste', 'MainController@teste');
+Route::post('/teste/checklogin', 'MainController@checklogin');
+Route::post('/teste/validaremail', 'EmailController@validaremail');
+
+
+Route::get('/login', 'MainController@index');
+Route::post('/login/checklogin', 'MainController@checklogin');
+Route::get('/login/logout', 'MainController@logout');
 
 
 
-Auth::routes();
+/*
+ Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/home', 'HomeController@index')->name('home');*/

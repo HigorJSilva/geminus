@@ -16,42 +16,47 @@ class MainController extends Controller
         return view('login');
     }
     function teste(){
-        
-        return view('layouts.teste');
+        return view('teste');
     }
 
-    function checkLogin (Request $request){
+    function checkLogin (Request $request /*$cpf, $senha*/){
+       
         $this->validate($request, [
-            'CPF' => 'required|numeric|',
+            'cpf' => 'required|numeric|',
             'password' => 'required|alphaNum|min:2'
             
         ], [
-            'CPF.required' => 'O campo CPF é obrigatório.',
-            'CPF.numeric' => 'O campo CPF é precisa ser numérico.',
-            'password.required' => 'O campo password é obrigatório.',
-            'password.alphaNum' => 'O campo password precisa ser alpha numérico.'
+            'cpf.required' => 'O campo CPF é obrigatório.',
+            'cpf.numeric' => 'O campo CPF é precisa ser numérico.',
+            'password.required' => 'O campo senha é obrigatório.',
+            'password.alphaNum' => 'O campo senha precisa ser alfanumérico.'
         ]);
             $userData = array(
-                'CPF' =>$request->get('CPF'),
+                'cpf' =>$request->get('cpf'),
                 'password' => $request->get('password'),
+                 
             );
 
+            
+
             if(Auth::attempt($userData)){
-                return redirect('main/sucesslogin');
+                return redirect('geminus');
+             
             }
             else{
                 info($userData);
-                return back()->with('error', 'Login ou password incorretos');
+                return back()->with('error', 'Login ou senha incorretos');
+              
             }
     }
 
     function sucessLogin(){
-        return view('sucesslogin');
+        return redirect('geminus');
     }
     function logout()
     {
         Auth::logout();
-        return redirect('main');
+        return redirect('login');
     }
 
     public function atualizasenha($password,$email)

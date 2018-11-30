@@ -17,7 +17,7 @@
     <h1> Sua nova senha é: {{$senha}}</h1>
     
     <div class="form-group">
-    <a href='http://localhost:8000/main'>  <input type="submit" name="login" class="btn btn-primary" value="Login" /></a>
+    <a href='http://localhost:8000/teste'>  <input type="submit" name="login" class="btn btn-primary" value="Login" /></a>
     </div>
  </body>
 </html>
