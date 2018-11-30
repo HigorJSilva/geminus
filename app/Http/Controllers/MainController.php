@@ -20,6 +20,13 @@ class MainController extends Controller
         return view('layouts.teste');
     }
 
+    public function novoTeste($data) {
+        // $data['cpf'] = $cpf;
+        // $data['password'] = $password;
+        // dd($data);
+        return $data;
+    }
+
     function checkLogin (Request $request){
         $this->validate($request, [
             'CPF' => 'required|numeric|',

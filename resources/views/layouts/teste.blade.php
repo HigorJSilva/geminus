@@ -21,6 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!--begin::Web font -->
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 		<script>
@@ -53,9 +54,9 @@ License: You must have a valid license purchased only from themeforest(the above
 							</a>
 						</div>
 						<div class="m-login__signin">
-							<form class="m-login__form m-form" action="">
+							<form  class="m-login__form m-form" action="{{ route('login') }}">
 								<div class="form-group m-form__group">
-									<input class="form-control m-input"   type="text" placeholder="CPF" name="cpf" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="CPF" name="cpf" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
 									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Senha" name="password">
@@ -75,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
+									<button id="m_login_signin_submit" type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
 										Sign In
 									</button>
 								</div>
@@ -91,6 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 							</div>
 							<form class="m-login__form m-form" action="">
+								{{ csrf_token() }}
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Fullname" name="fullname" >
 								</div>

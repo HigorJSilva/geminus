@@ -23,8 +23,7 @@ Route::get('/esqueceusenha','EmailController@index');
 Route::post('/main/validaremail', 'EmailController@validaremail');
 Route::get('/esqueceusenha','EmailController@index');
 Route::get('/teste', 'MainController@teste');
-
-
+Route::post('/novo-teste/', 'MainController@novoTeste');
 
 Auth::routes();
 
