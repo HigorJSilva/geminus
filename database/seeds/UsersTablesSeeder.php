@@ -18,7 +18,7 @@ class UsersTablesSeeder extends Seeder
         $this->call('UsersTablesSeeder');*/
         User::create([
             'CPF' => '1234567',
-            'email' => 'haha@gmail.com',
+            'email' => 'rafael.cirqueira@outlook.com',
             'senha' => hash::make('senha')
         ]);
     }

@@ -11,12 +11,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<html lang="en" >
+<html lang="pt" >
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
 		<title>
-			Metronic | Login Page - 3
+			Geminus Login
 		</title>
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +54,12 @@ License: You must have a valid license purchased only from themeforest(the above
 							</a>
 						</div>
 						<div class="m-login__signin">
+<<<<<<< HEAD:resources/views/layouts/teste.blade.php
 							<form  class="m-login__form m-form" action="{{ route('login') }}">
+=======
+							<form class="m-login__form m-form" method="post" action="{{ url('/teste/checklogin') }}">
+							{{ csrf_field() }}
+>>>>>>> c6d3037c789b914dfb9845ad6e04a88c0afed25b:resources/views/layouts/test.blade.php
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="CPF" name="cpf" autocomplete="off">
 								</div>
@@ -76,7 +81,11 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 								<div class="m-login__form-action">
+<<<<<<< HEAD:resources/views/layouts/teste.blade.php
 									<button id="m_login_signin_submit" type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
+=======
+									<button type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
+>>>>>>> c6d3037c789b914dfb9845ad6e04a88c0afed25b:resources/views/layouts/test.blade.php
 										Sign In
 									</button>
 								</div>
@@ -121,7 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="m-login__form-action">
 									<button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn">
-										Sign Up
+										Login
 									</button>
 									&nbsp;&nbsp;
 									<button id="m_login_signup_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom  m-login__btn">
@@ -139,7 +148,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									Insira seu email para trocar a senha:
 								</div>
 							</div>
-							<form class="m-login__form m-form" action="">
+							<form class="m-login__form m-form" action="{{ url('/teste/validaremail') }}">
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
 								</div>
