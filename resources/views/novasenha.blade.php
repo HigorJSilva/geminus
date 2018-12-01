@@ -233,7 +233,7 @@ body{
                           <td align="center" valign="top" width="200">
                             <div class="contentEditableContainer contentImageEditable">
                               <div align="center" class="contentEditable">
-                                <img alt="Logo" data-default="placeholder" height="155" src="https://doc-04-98-docs.googleusercontent.com/docs/securesc/nr93puovbpj1o8tu8c8mn54gfunmukib/jkihaalsio5727ltmfoe2n5844v612rr/1543687200000/04918759904327089818/04918759904327089818/1MWkykYgAcla7hCMtNk553JZTLwNtOhGO?nonce=hvnupofts5l30&user=04918759904327089818&hash=hgaphs50ak801eraockqsfdu8gu9m012" width="300"/>
+                                <img alt="Logo" data-default="placeholder" height="155" src="https://docs.google.com/uc?id=1MWkykYgAcla7hCMtNk553JZTLwNtOhGO" width="300"/>
                               </div>
                             </div>
                           </td>
