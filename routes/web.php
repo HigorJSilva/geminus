@@ -22,9 +22,8 @@ Route::get('/main/logout', 'MainController@logout');
 Route::get('/esqueceusenha','EmailController@index');
 Route::post('/main/validaremail', 'EmailController@validaremail');
 Route::get('/esqueceusenha','EmailController@index');
-Route::get('/teste', 'MainController@teste');
+Route::get('/teste', 'MainController@teste')->name('entrar');
 // <<<<<<< HEAD
-Route::post('/novo-teste/', 'MainController@novoTeste');
 // =======
 Route::post('/teste/checklogin', 'MainController@checklogin');
 Route::post('/teste/validaremail', 'EmailController@validaremail');
