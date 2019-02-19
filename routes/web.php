@@ -15,25 +15,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', 'MainController@index');
-Route::post('/main/checklogin', 'MainController@checklogin');
-Route::get('/main/successlogin', 'MainController@successlogin');
-Route::get('/main/logout', 'MainController@logout');
-Route::get('/esqueceusenha','EmailController@index');
-Route::post('/main/validaremail', 'EmailController@validaremail');
-Route::get('/esqueceusenha','EmailController@index');
-Route::get('/teste', 'MainController@teste')->name('entrar');
-// <<<<<<< HEAD
-// =======
-Route::post('/teste/checklogin', 'MainController@checklogin');
-Route::post('/teste/validaremail', 'EmailController@validaremail');
-
 
 Route::get('/login', 'MainController@index');
 Route::post('/login/checklogin', 'MainController@checklogin');
-Route::get('/login/logout', 'MainController@logout');
-// >>>>>>> c6d3037c789b914dfb9845ad6e04a88c0afed25b
-Route::get('teste-view-email', 'MainController@viewEmail');
+Route::get('/login', 'MainController@index')->name('entrar');
+Route::get('/logout', 'MainController@logout');
+
+Route::get('/geminus', 'MainController@sucesso');
+
+Route::get('/esqueceusenha','EmailController@index');
+Route::post('/esqueceusenha', 'EmailController@validaremail');
+
+Route::get('/cadastrar','UsuarioController@index');
+Route::post('/cadastrar','UsuarioController@cadastrar');
+Route::get('cadastrar/{id}','UsuarioController@editar');
+
+Route::get('excluir/{id}','UsuarioController@excluir');
+
+Route::post('/alterar','UsuarioController@alterar');
+
+Route::get('/listar','UsuarioController@listar');
+
+
+
+
 
 
 

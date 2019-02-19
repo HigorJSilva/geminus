@@ -38,6 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--begin::Base Styles -->
 	<link href="{{ asset('css/vendors.bundle.css') }}" rel="stylesheet"/>
 	<link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet"/>
+	<link rel="stylesheet" href="{{ asset('css/style1.css ')}}">
 	<!--end::Base Styles -->
 	<link rel="shortcut icon" href=" {{ asset('media/favicon.ico') }} " />
 </head>
@@ -52,29 +53,30 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="m-login__container">
 				<div class="m-login__logo">
 					<a href="#">
-						<img src="media/geminus.png" style="width: 300px">
+					<img src="{{asset('media/geminus.png')}}" style="width: 300px">
 					</a>
 				</div>
 				@if ($message = Session::get('sucesso'))
-				<div class="m-alert m-alert--outline alert alert-success" role="alert">
+				<div class="m-alert m-alert--outline alert alert-success" style="margin-top:-15%" role="alert">
 					<button type="button" class="close" data-dismiss="alert">×</button>
 					<strong>{{ $message }}</strong>
 				</div>
 				@endif
 				@if ($message = Session::get('error'))
-				<div class="alert alert-danger alert-block" style="margin-top:-10%; text-align: center;
-				vertical-align: middle;">
+				<div class="m-alert m-alert--outline alert alert-danger" style="margin-top:-15%;
+				 text-align: center; vertical-align: middle;">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<strong>{{ $message }}</strong>
 			</div>
 			@endif
 			@if (count($errors) > 0)
 
-			<div class="m-alert m-alert--outline alert alert-danger" style="margin-top:-10%; text-align: left;
-			vertical-align: top;">
+			<div class="m-alert m-alert--outline alert alert-danger" style="margin-top:-15%; text-align: center;
+			vertical-align: top; font-weight: bold; ">
 			<!-- <ul> -->
+			<button type="button" class="close" data-dismiss="alert">×</button>
 				@foreach($errors->all() as $error)
-				<br>{{ $error }}
+				{{ $error }}<br>
 				@endforeach
 				<!-- </ul> -->
 			</div>
@@ -88,7 +90,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						Insira seu email para trocar a senha:
 					</div>
 				</div>
-				<form class="m-login__form m-form" method="post" action="{{ url('/main/validaremail') }}">
+				<form class="m-login__form m-form" method="post" action="{{ url('/esqueceusenha') }}">
 					{{ csrf_field() }}
 					<div class="form-group m-form__group" style="margin-top:-40px">
 						<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
@@ -98,12 +100,13 @@ License: You must have a valid license purchased only from themeforest(the above
 							Enviar
 						</button>
 						&nbsp;&nbsp;
+						<a id="m_login_forget_password_cancel" href="{!! route('entrar') !!}" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom m-login__btn">
+					Voltar
+				</a>  
 
 					</div>
 				</form>
-				<a id="m_login_forget_password_cancel" href="{!! route('entrar') !!}" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom m-login__btn">
-					Voltar
-				</a>  
+				
 			</div>
 		</div>
 	</div>

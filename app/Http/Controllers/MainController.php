@@ -15,76 +15,64 @@ class MainController extends Controller
     public function index(){
         return view('login');
     }
-
-    public function teste(){
-        return view('teste');
-    }
     
-    public function viewEmail() {
-        return view('novasenha');
+    public function sucesso() {
+        return view('geminus');
     }
 
-// <<<<<<< HEAD
-//     public function novoTeste($data) {
-//         // $data['cpf'] = $cpf;
-//         // $data['password'] = $password;
-//         // dd($data);
-//         return $data;
-//     }
-
-//     function checkLogin (Request $request){
-// // =======
-//     function checkLogin (Request $request /*$cpf, $senha*/){
+    function checkLogin (Request $request ){
        
-// // >>>>>>> c6d3037c789b914dfb9845ad6e04a88c0afed25b
-//         $this->validate($request, [
-//             'cpf' => 'required|numeric|',
-//             'password' => 'required|alphaNum|min:2'
+        $this->validate($request, [
+            'cpf' => 'required|numeric|digits:11',
+            'password' => 'required|alpha_num|min:2'
             
-//         ], [
-//             'cpf.required' => 'O campo CPF é obrigatório.',
-//             'cpf.numeric' => 'O campo CPF é precisa ser numérico.',
-//             'password.required' => 'O campo senha é obrigatório.',
-//             'password.alphaNum' => 'O campo senha precisa ser alfanumérico.'
-//         ]);
-//             $userData = array(
-//                 'cpf' =>$request->get('cpf'),
-//                 'password' => $request->get('password'),
+        ], [
+            'cpf.required' => 'O campo CPF é obrigatório.',
+            'password.min' => 'O campo senha precisa ter no mínimo 2 caracteres.',
+            'cpf.numeric' => 'O campo CPF precisa ser numérico.',
+            'cpf.digits' => 'O campo CPF precisa ter 11 dígitos.',
+            'password.required' => 'O campo Senha é obrigatório.',
+            'password.alpha_num' => 'O campo Senha precisa ser alfanumérico.',
+            
+        ]);
+            $userData = array(
+                'cpf' =>$request->get('cpf'),
+                'password' => $request->get('password'),
                  
-//             );
+            );
 
             
 
-//             if(Auth::attempt($userData)){
-//                 return redirect('geminus');
+            if(Auth::attempt($userData)){
+                return redirect('geminus');
              
-//             }
-//             else{
-//                 info($userData);
-//                 return back()->with('error', 'Login ou senha incorretos');
+            }
+            else{
+                info($userData);
+                return back()->with('error', 'Login ou senha incorretos');
               
-//             }
-//     }
+            }
+    }
 
-//     function sucessLogin(){
-//         return redirect('geminus');
-//     }
-//     function logout()
-//     {
-//         Auth::logout();
-//         return redirect('login');
-//     }
+    function sucessLogin(){
+        return redirect('geminus');
+    }
+    function logout()
+    {
+        Auth::logout();
+        return redirect('login');
+    }
 
-//     public function atualizasenha($password,$email)
-//     {
-//         $user_id = User::select('id')->where('email', $email)->first();
-//         $user_id->password = hash::make($password);
-//         $user_id->save();
-//     }
+    public function atualizasenha($password,$email)
+    {
+        $user_id = User::select('id')->where('email', $email)->first();
+        $user_id->password = hash::make($password);
+        $user_id->save();
+    }
 
-//     function gerarsenha()
-//     {
-//         return str_random(8);
-//     }
+    function gerarsenha()
+    {
+        return str_random(8);
+    }
 
 }

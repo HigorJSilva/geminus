@@ -24,6 +24,7 @@
         <!--begin::Base Styles -->
 		<link href="{{ asset('css/vendors.bundle.css') }}" rel="stylesheet"/>
 		<link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet"/>
+		<link rel="stylesheet" href="{{ asset('css/style1.css ')}}">
 		<!--end::Base Styles -->
 		<link rel="shortcut icon" href=" {{ asset('media/favicon.ico') }} " />
 	</head>
@@ -38,10 +39,20 @@
 							<a href="#">
 								<img src="media/geminus.png" style="width: 300px">
 							</a>
+							<H2> PÁGINA INICIAL</H2>
 						</div>
-                        </div>
+						
+                    </div>
 				</div>
+
+		  
+
 			</div>
 		</div>
+		<style type="text/css">
+h2 {
+    color:#FFFFFF;
+}
+</style>
     </body>
 <!DOCTYPE html>

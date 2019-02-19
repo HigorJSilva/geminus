@@ -27,7 +27,7 @@ class EmailController extends Controller{
 
         ], [
             'email.required' => 'O campo email é obrigatório.',
-            'email.email' => 'Email inválido.'
+            'email.email' => 'Email inválido. Por favor insira um endereço de Email válido.'
         ]);
 
         if (User::where('email', '=', $this->email)->exists()) {
@@ -37,11 +37,11 @@ class EmailController extends Controller{
             $senha= $controle->gerarSenha();
             $this->enviarEmail($senha);
             $controle->atualizaSenha($senha, $this->email);
-            $menssagem ='Nova senha enviada';
+            $menssagem ='A nova senha foi enviada para o Email informado.';
             return redirect('/esqueceusenha')->with('sucesso', $menssagem);
          }
         else {
-            $menssagem = ('Email inválido');
+            $menssagem = ('Não existe usuário com esse Email cadastrado. Por favor verifique a escrita e tente novamente.');
             return redirect('/esqueceusenha')->with('error', $menssagem);
 
         }

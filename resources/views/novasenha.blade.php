@@ -264,22 +264,12 @@ body{
                             <div class="contentEditableContainer contentTextEditable">
                               <div align="center" class="contentEditable">
                                 <p>
-                                  @php
-                                  if(!isset($senha))
-                                  {
-                                    $senha = "novasenha";
-                                  }                                  
-                                  @endphp
-                                  @if(isset($senha))
-                                  <span>
-                                    <textarea class="fieldSenha" id="senha" readonly="true">{{ $senha }}</textarea>
-                                  </span>
-                                  @endif
+                                <h1> {{ $senha }} </h1>
                                 </p>
                               </div>
                             </div>
 
-                            <table cellpadding="0" cellspacing="0" border="0" align="center" width="600" class="container">
+                            <!-- <table cellpadding="0" cellspacing="0" border="0" align="center" width="600" class="container">
                               <tr>
                                 <td width="200">&nbsp;</td>
                                 <td width="200" align="center" style="padding-top:25px;">
@@ -297,7 +287,7 @@ body{
                                 </td>
                                 <td width="200">&nbsp;</td>
                               </tr>
-                            </table>
+                            </table> -->
 
                             <script type="text/javascript">
                               var copiar = function() {

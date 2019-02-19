@@ -11,12 +11,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
+
 <html lang="en" >
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
 		<title>
-			Geminus Login
+			Cadastro de Usuário
 		</title>
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		
@@ -40,22 +41,29 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="{{ asset('css/style1.css ')}}">
 		<!--end::Base Styles -->
 		<link rel="shortcut icon" href=" {{ asset('media/favicon.ico') }} " />
+		
 	</head>
 	<!-- end::Head -->
     <!-- end::Body -->
 	<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
-		<!-- begin:: Page -->
+	
+	
+	<!-- begin:: Page -->
+	
+	@extends('layouts.popup')
 		<div class="m-grid m-grid--hor m-grid--root m-page">
-			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(media/bg-image.jpg);     background-size: 112%;
-    background-position: center;">
+			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" 
+			style="background-size: 112%;
+    background-position: center; ">
 				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
 					<div class="m-login__container">
 						<div class="m-login__logo" style="margin-bottom:-10%">
 							<a href="#">
-								<img src="media/geminus.png" style="width: 300px">
+								<img src="{{asset('media/geminus.png')}}" style="width: 300px">
 							</a>
 						</div>
 						
+
 						@if ($message = Session::get('error'))
 
 
@@ -76,36 +84,41 @@ License: You must have a valid license purchased only from themeforest(the above
             @endforeach
         <!-- </ul> -->
     </div>
+	 @endif
+	
+	 
 
-     @endif
+	
 						<div class="m-login__signin">
-							<form class="m-login__form m-form" method="POST" action="{{ url('/login/checklogin') }}">
-							{{ csrf_field() }}
+
+							<form class="m-login__form m-form" method="POST" action="{{ isset($resource) ? '/alterar' : '/cadastrar' }}">
+							{{ csrf_field() }}					
+							<input type="hidden" id="id" name="id" value="{{ old('', isset($resource) ? $resource->id : '') }}">
+
 								<div class="form-group m-form__group">
-									<input class="form-control m-input"  id="cpf" type="text" placeholder="CPF" name="cpf" autocomplete="off">
+									<input class="form-control m-input"  id="CPF" type="text" 
+									placeholder="CPF" name="CPF" autocomplete="off"
+									value="{{ old('CPF', isset($resource) ? $resource->CPF : '') }}">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last" type="password" id="password" placeholder="Senha" name="password">
+									<input class="form-control m-input m-login__form-input--last"
+									 type="password" id="password" placeholder="Senha" name="password"
+									 value="{{ old('password', isset($resource) ? $resource->password : '') }}"
+									 @if(isset($resource) ) readonly="readonly"  @endif>
 								</div>
-								<div class="row m-login__form-sub">
-									<div class="col m--align-left m-login__form-left">
-										<label class="m-checkbox  m-checkbox--focus">
-											<input type="checkbox" name="remember">
-											Lembrar
-											<span></span>
-										</label>
-									</div>
-									<div class="col m--align-right m-login__form-right">
-										 <a href="/esqueceusenha" id="m_login_forget_password" class="m-link">
-										
-											Esqueceu a senha ?
-										</a>
-									</div>
-								</div>
+                                <div class="form-group m-form__group">
+									<input class="form-control m-input" type="text" placeholder="Email" name="email"
+									 id="m_email" autocomplete="off"
+									 value="{{ old('email', isset($resource) ? $resource->email : '') }}">
+					            </div>
 								<div class="m-login__form-action">
 									<button  type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
-										Login
+									{{ isset($resource) ? 'Alterar' : 'Cadastrar' }}
 									</button>
+									&nbsp;&nbsp;
+									<a id="m_login_forget_password_cancel" href= "{{ url('/geminus') }}" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom m-login__btn">
+										Voltar
+									</a>  
 								</div>
 							</form>
 						</div>
@@ -117,6 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
     	<!--begin::Base Scripts -->
 		<script src="{{ asset('js/vendors.bundle.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('js/scripts.bundle.js') }}" type="text/javascript"></script>
+		
 		<!--end::Base Scripts -->   
         <!--begin::Page Snippets -->
 
