@@ -102,9 +102,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="form-group m-form__group">
 									<input class="form-control m-input m-login__form-input--last"
-									 type="password" id="password" placeholder="Senha" name="password"
+									  id="password" placeholder="Senha" name="password" 
 									 value="{{ old('password', isset($resource) ? $resource->password : '') }}"
-									 @if(isset($resource) ) readonly="readonly"  @endif>
+									 @if(isset($resource) ) readonly="readonly" type="hidden" @else  type="password" @endif>
 								</div>
                                 <div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Email" name="email"
