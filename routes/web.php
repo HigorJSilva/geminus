@@ -26,19 +26,19 @@ Route::get('/geminus', 'MainController@sucesso');
 Route::get('/esqueceusenha','EmailController@index');
 Route::post('/esqueceusenha', 'EmailController@validaremail');
 
-Route::get('/cadastrar','UsuarioController@index');
-Route::post('/cadastrar','UsuarioController@cadastrar');
-Route::get('cadastrar/{id}','UsuarioController@editar');
+Route::get('/cadastrarusuario','UsuarioController@index');
+Route::post('/cadastrarusuario','UsuarioController@cadastrar');
+Route::get('cadastrarusuario/{id}','UsuarioController@editar');
 
-Route::get('excluir/{id}','UsuarioController@excluir');
+Route::get('excluirusuario/{id}','UsuarioController@excluir');
 
-Route::post('/alterar','UsuarioController@alterar');
+Route::post('/alterarusuario','UsuarioController@alterar');
 
-Route::get('/listar','UsuarioController@listar');
-
-
+Route::get('/listarusuario','UsuarioController@listar');
 
 
+Route::get('/trocarsenha','UsuarioController@trocarSenha');
+Route::post('/trocarsenha','UsuarioController@alterarSenha');
 
 
 

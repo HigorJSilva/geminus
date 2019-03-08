@@ -17,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<head>
 		<meta charset="utf-8" />
 		<title>
-			Cadastro de Usuário
+			Troca de senha
 		</title>
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		
@@ -39,7 +39,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('css/vendors.bundle.css') }}" rel="stylesheet"/>
 		<link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet"/>
 		<link rel="stylesheet" href="{{ asset('css/style1.css ')}}">
-		<link href="{{ asset('css/so.scss') }}" rel="stylesheet"/>
 		<!--end::Base Styles -->
 		<link rel="shortcut icon" href=" {{ asset('media/favicon.ico') }} " />
 		
@@ -48,9 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- end::Body -->
 	<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
 	
-	
 	<!-- begin:: Page -->
-	
 	@extends('layouts.popup')
 	
 		<div class="m-grid m-grid--hor m-grid--root m-page">
@@ -59,27 +56,25 @@ License: You must have a valid license purchased only from themeforest(the above
     background-position: center; ">
 				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
 					<div class="m-login__container">
-						<div class="m-login__logo" style="margin-bottom:-10%">
+						 <div class="m-login__logo" style="margin-bottom:-10%">
 							<a href="#">
 								<img src="{{asset('media/geminus.png')}}" style="width: 300px">
 							</a>
-						</div>
+						</div> 
 						
 
-						@if ($message = Session::get('error'))
-
-
-   <div class="m-alert m-alert--outline alert alert-danger "  style="margin-top:10%; margin-bottom:-10%">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $message }}</strong>
-   </div>
+	@if ($message = Session::get('error'))
+        <div class="m-alert m-alert--outline alert alert-danger "  style="margin-top:10%; margin-bottom:-10%">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
    @endif
    
 
     @if (count($errors) > 0)
 
     <div class="m-alert m-alert--outline alert alert-danger" style="margin-top:10%; margin-bottom:-10%; text-align: center; font-weight: bold; ">
-	<button type="button" class="close" data-dismiss="alert">×</button>
+	    <button type="button" class="close" data-dismiss="alert">×</button>
 		<!-- <ul> -->
             @foreach($errors->all() as $error)
             {{ $error }}<br>
@@ -93,25 +88,21 @@ License: You must have a valid license purchased only from themeforest(the above
 	
 						<div class="m-login__signin">
 
-							<form class="m-login__form m-form" method="POST" action="{{ isset($resource) ? '/alterarusuario' : '/cadastrarusuario' }}">
+							<form class="m-login__form m-form" method="POST" action="{{url('trocarsenha') }}">
 							{{ csrf_field() }}					
 							<input type="hidden" id="id" name="id" value="{{ old('', isset($resource) ? $resource->id : '') }}">
 
 								<div class="form-group m-form__group">
-									<input class="form-control m-input"  id="CPF" type="text" 
-									placeholder="CPF" name="CPF" autocomplete="off"
-									value="{{ old('CPF', isset($resource) ? $resource->CPF : '') }}">
+									<input class="form-control m-input"  id="senhaAntiga" type="password" 
+									placeholder="Senha Atual" name="senhaantiga" autocomplete="off">
 								</div>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last"
-									  id="password" placeholder="Senha" name="password" 
-									 value="{{ old('password', isset($resource) ? $resource->password : '') }}"
-									 @if(isset($resource) ) readonly="readonly" type="hidden" @else  type="password" @endif>
+									<input class="form-control m-input"
+									  id="novaSenha" placeholder="Nova Senha" type="password" name="novasenha" >
 								</div>
                                 <div class="form-group m-form__group">
-									<input class="form-control m-input" type="text" placeholder="Email" name="email"
-									 id="m_email" autocomplete="off"
-									 value="{{ old('email', isset($resource) ? $resource->email : '') }}">
+									<input class="form-control m-input" type="password" placeholder="Confirmar Senha" 
+                                    name="confirmarsenha" id="confirmarSenha">
 					            </div>
 								<div class="m-login__form-action">
 									<button  type="submit" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary" style="background-color: #0d123c">
