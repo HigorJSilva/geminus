@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
@@ -88,17 +89,16 @@ class UsuarioController extends Controller
         }else{
             return redirect('/trocarsenha')->with('error', 'Senha inserida não é a senha atual');
         }
-       
-      
-
      }
 
 
     function valida(Request $request){
-        
+   
         $this->validate($request, [
             'CPF' => 'required|numeric|digits:11',
-            'email'=> 'required|email|unique:usuario'
+            'email'=> 'required|email|unique:usuario',
+            'email' => Rule::unique('usuario')->ignore($request['id']),
+    
             
         ], [
             'CPF.required' => 'O campo CPF é obrigatório.',
