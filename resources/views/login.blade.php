@@ -1,9 +1,5 @@
 @extends('main')
-
-
-
-
-
+@include('layouts.mensagens')
 @section('content')
 <div class="m-grid m-grid--hor m-grid--root m-page">
 			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(media/bg-image.jpg);     background-size: 112%;
@@ -13,6 +9,7 @@
                         <div class="m-login__logo" style="margin-bottom:-8%">
 						<a href="#"> <img src="{{asset('media/geminus.png')}}" style=" margin-top:25%; width: 300px"></a>
 </div>
+@yield('mensagens')
 <div class="m-login__signin"style="margin-top:-50px;">
 	<form class="m-login__form m-form" method="POST" action="{{ url('/login/checklogin') }}">
 		{{ csrf_field() }}

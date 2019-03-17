@@ -34,9 +34,9 @@
                 <td>{{$usuario->CPF}}</td>
                 <td>{{$usuario->email}}</td>
                 <td  text-align="center" ><a href="{{URL::to('/cadastrarusuario/'.$usuario->id)}}" class = "button">Alterar</a>
-                <button type="button" class="buttonRemover" style="border:none" data-toggle="modal" 
-                data-target="#modalPush">Excluir</button>
-
+                <button type="button" id="remover" class="buttonRemover" id="{{$usuario->id}}"
+                 data-id="{{$usuario->id}}" style="border:none" data-toggle="modal"
+                  data-target="#modalPush">Excluir</button>
             </tr>
                 
         @endforeach
@@ -64,7 +64,8 @@
 
       <!--Footer-->
       <div class="modal-footer flex-center">
-        <a href="{{URL::to('/excluirusuario/'.$usuario->id)}}" class="button">Sim</a>
+     
+        <a href="#" id="remocao" class="button">Sim</a>
          <a href="#";class="buttonRemover" class="buttonRemover" data-dismiss="modal">Não</a>
          
         
