@@ -9,15 +9,15 @@
 			<ul class="cd-main-nav">
 				<li><a href="#0">About</a></li>
 				<li><a href="#0">Projects</a></li>
-				<li><a href="#0">Blog</a></li>
-				<li><a href="#0">Contact</a></li>
+				<li><a href="#0">Disciplinas</a></li>
+				<li><a href="#0">Professores</a></li>
 				<li>
 					<a href="#0" class="cd-subnav-trigger"><span>Usuarios</span></a>
 
 					<ul>
 						<li class="go-back"><a href="#0">Menu</a></li>
 						<li><a href="/listarusuario">Listar</a></li>
-						<li><a href="/cadastrarusuario">Criar</a></li>
+						<li><a href="/cadastrarusuario">Cadastrar</a></li>
 						<li><a href="/trocarsenha">Trocar Senha</a></li>
 						<li><a href="#0" class="placeholder">Placeholder</a></li>
 					</ul>

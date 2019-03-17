@@ -1,6 +1,7 @@
 @extends('main')
 @extends('layouts.popup')
-@extends('layouts.nav')
+@include('layouts.navbar')
+@include('layouts.mensagens')
 @section('content')
 
 <style>
@@ -10,16 +11,17 @@
 
 </style>
  
-<section style="margin-top:180px">
+<section style="margin-top:1px">
   <!--for demo wrap-->
   <h1>Listagem de usuários</h1>
+  @yield('mensagens')
     <div class="tbl-header" >
         <table cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
-                    <th>CPF</th>
-			        <th>Email</th>
-		            <th>Ações</th>
+                  <th>CPF</th>
+			            <th>Email</th>
+		              <th>Ações</th>
                 </tr>
              </thead>
         </table>

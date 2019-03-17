@@ -32,6 +32,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vendors.bundle.css') }}" rel="stylesheet"/>
 	<link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet"/>
@@ -51,40 +52,12 @@
         <div>
             @yield('nav')
         </div>
-
-
-						
-						@if ($message = Session::get('error'))
-
-
-        <div class="m-alert m-alert--outline alert alert-danger "  style="margin-top:10%; margin-bottom:-10%">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-   @endif
-   
-
-    @if (count($errors) > 0)
-        <div class="m-alert m-alert--outline alert alert-danger" style="margin-top:10%; margin-bottom:-10%; text-align: center; font-weight: bold; ">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <!-- <ul> -->
-                @foreach($errors->all() as $error)
-                {{ $error }}<br>
-                @endforeach
-            <!-- </ul> -->
-        </div>
-        @endif
-        
-	
-	
-    
-    
-
-   
-    </body>
-
-    <main class="py-4">
+<main class="py-4">
         @yield('content')
     </main>
+
+    </body>
+
+    
 		
 </head>

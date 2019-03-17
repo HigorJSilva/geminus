@@ -1,14 +1,14 @@
 @extends('main')
-
+@include('layouts.mensagens')
 @section('content')
-
-<div class="container-contact100">
+<div class="container-contact100" style="margin-top:150px">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="POST" action="{{ isset($resource) ? '/alterarusuario' : '/cadastrarusuario' }}">
+			<form class="contact100-form validate-form" method="POST" action="{{ '/trocarsenha' }}">
             {{ csrf_field() }}
 				<span class="contact100-form-title">
                 Trocar senha
                 </span>
+				@yield('mensagens')
                 <input type="hidden" id="id" name="id" value="{{ old('', isset($resource) ? $resource->id : '') }}">
 
 				<div class="wrap-input100 validate-input bg1">
@@ -37,12 +37,12 @@
 					</button>
                 </div>
                 <div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" id="id"  href= "{{ url('/listarusuario') }}">
+					<a class="contact100-form-btn" id="id"  href= "{{ url('/listarusuario') }}">
 						<span>
 							Voltar
 						
 						</span>
-					</button>
+					</a>
 				</div>
 			</form>
 		</div>

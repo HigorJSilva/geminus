@@ -11,7 +11,7 @@
 				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
 					<div class="m-login__container">
                         <div class="m-login__logo" style="margin-bottom:-8%">
-						<a href="#"> <img src="{{asset('media/geminus.png')}}" style="width: 300px"></a>
+						<a href="#"> <img src="{{asset('media/geminus.png')}}" style=" margin-top:25%; width: 300px"></a>
 </div>
 <div class="m-login__signin"style="margin-top:-50px;">
 	<form class="m-login__form m-form" method="POST" action="{{ url('/login/checklogin') }}">

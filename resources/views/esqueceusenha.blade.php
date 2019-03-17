@@ -6,7 +6,7 @@
 				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
 					<div class="m-login__container">
                         <div class="m-login__logo" style="margin-bottom:-8%">
-						<a href="#"> <img src="{{asset('media/geminus.png')}}" style="width: 300px"></a>
+						<a href="#"> <img src="{{asset('media/geminus.png')}}" style="margin-top:25%; width: 300px"></a>
 </div>
 <div class="sm-login__forget-password" >
 	<div class="m-login__head">

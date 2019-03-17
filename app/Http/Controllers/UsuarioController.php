@@ -96,8 +96,7 @@ class UsuarioController extends Controller
    
         $this->validate($request, [
             'CPF' => 'required|numeric|digits:11',
-            'email'=> 'required|email|unique:usuario',
-            'email' => Rule::unique('usuario')->ignore($request['id']),
+            'email'=> 'required|email|unique:usuario|'.Rule::unique('usuario')->ignore($request['id'])
     
             
         ], [
